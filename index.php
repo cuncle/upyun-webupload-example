@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>又拍单图上传测试</title>
+        <title>Webuploader</title>
         
 		<link rel="stylesheet" type="text/css" href="css/webuploader.css"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
