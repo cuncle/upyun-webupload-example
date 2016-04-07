@@ -20,8 +20,6 @@
     <!--用来存放item-->
     <div id="fileList" class="uploader-list"></div>
     <div id="filePicker">选择图片</div>
-        <input id="policy" type="hidden" name="policy" value="<?php echo $policy; ?>" />
-        <input id="sign" type="hidden" name="signature" value="<?php echo $sign; ?>" /> 
 	<button id="ctlBtn" class="btn btn-default">开始上传</button>
 </div>
     </body>
