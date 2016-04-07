@@ -19,7 +19,3 @@
 ├── webuploader.custom.js             # 自定义打包方案，请查看 Gruntfile.js，满足移动端使用。
 └── webuploader.custom.min.js         # min版本
 ```
-
-## 示例
-
-请把整个 Git 包下载下来放在 php 服务器下，因为默认提供的文件接受是用 php 编写的，打开 examples 页面便能查看示例效果。
