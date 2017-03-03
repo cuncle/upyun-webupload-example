@@ -10,8 +10,8 @@ $form_api_secret = 'form_api_secret';
 $api= 'http://v0.api.upyun.com/' . $bucket.'/';
 $options = array();
 $options['bucket'] = $bucket;
-// 授权过期时间：以页面加载完毕开始计时，10分钟内有效
-$options['expiration'] = time()+600;
+// 授权过期时间：以页面加载完毕开始计时，60分钟内有效
+$options['expiration'] = time()+3600;
 
 // 保存路径：最终将以"/年/月/日/upload_待上传文件名"的形式进行保存
 $options['save-key'] = '/{year}/{mon}/{day}/upload_{filename}{.suffix}';
