@@ -6,7 +6,8 @@ jQuery(function() {
         $policy = $('#policy').val(),
         $sign = $('#sign').val(),
         $api = $('#api').val(),
-        state = 'pending',      
+        state = 'pending',    
+        $bucket = $('#bucket').val(),  
         // Web Uploader实例
         uploader;
         uploader = WebUploader.create({
@@ -54,7 +55,8 @@ jQuery(function() {
 
     uploader.on( 'uploadSuccess', function( file,response ) {
         $( '#'+file.id ).find('p.state').text('已上传');
-        console.log(response.fileName);
+        var url='http://'+$bucket+'.'+'b0.upaiyun.com'+response.url;
+        $('#url').text(url);
     });
 
     uploader.on( 'uploadError', function( file ) {
