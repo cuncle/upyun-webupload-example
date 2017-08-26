@@ -12,7 +12,7 @@
 
 获取源代码： git clone https://github.com/cuncle/upyun-webupload-example.git
 
-编辑 config.php 文件，填写您的BUCKET和Form_Api_Secret，表单密钥通过后台——>服务——>功能配置——>高级功能——>表单API密钥获取。
+编辑 config.php 文件，修改您的服务名，操作员，操作员密码。
 
 **说明**
 
@@ -37,7 +37,7 @@ jQuery(function() {
         pick: '#filePicker',
         formData: {
             policy: $policy,
-            signature: $sign
+            authorization: $authorization
         }
     });
 ```
