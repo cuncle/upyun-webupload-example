@@ -1,24 +1,22 @@
 <?php
-
-// 空间名
-$bucket = 'bucket_name';
-
-//表单密钥通过后台——>服务——>功能配置——>高级功能——>表单API密钥获取
-$form_api_secret = 'form_api_secret';
-
-//上传API地址
-$api= 'http://v0.api.upyun.com/' . $bucket.'/';
+//必须需要修改的参数
+//#################################################################################################
+$bucket = 'bucket';//又拍云的服务名
+//$form_api_secret = 'form_api_secret';//表单密钥：后台——>空间——>通用——>基本设置
+$operator ='operator'; //授权的操作员
+$password = md5('password'); // 授权的操作员密码
+//#################################################################################################
+$GMTdate = gmdate('D, d M Y H:i:s') . ' GMT';
+$method = 'POST';
+$URI = '/'.$bucket;
 $options = array();
 $options['bucket'] = $bucket;
-// 授权过期时间：以页面加载完毕开始计时，60分钟内有效
 $options['expiration'] = time()+3600;
-
-// 保存路径：最终将以"/年/月/日/upload_待上传文件名"的形式进行保存
-$options['save-key'] = '/{year}/{mon}/{day}/upload_{filename}{.suffix}';
-
-$policy = base64_encode(json_encode($options));
-
-// 计算签名值，具体说明请参阅"Signature 签名"
-$sign = md5($policy.'&'.$form_api_secret);
-
+$options['save-key'] = '/{year}/{mon}/{day}/upload_{filename}{.suffix}';//save-key 详细说明可以看官方文档
+$options['date'] = $GMTdate;
+$policy = base64_encode(json_encode($options));//policy 生成
+$str = $method.'&'.$URI.'&'.$GMTdate.'&'.$policy;
+$signature = base64_encode(hash_hmac('sha1',$str, $password, true));
+$authorization = "UPYUN {$operator}:{$signature}";
+//$signature = md5($policy.'&'.$form_api_secret);// sigenature生成
 ?>
